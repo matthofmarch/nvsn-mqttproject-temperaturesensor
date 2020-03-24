@@ -10,12 +10,12 @@ var topicH = 'sensors/temperature/hs1'
                     if (!err){
                         var message= {
                             sensorName: "ts1",
-                            double: temperature,
+                            value: temperature,
                             tempUnit: "°C",
                         }
                         var messageHumidity= {
                             sensorName: "hs1",
-                            float: humidity,
+                            value: humidity,
                             tempUnit: "%"
                         }
                         client.publish(topic, JSON.stringify(message))
