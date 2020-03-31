@@ -1,7 +1,7 @@
 var mqtt = require('mqtt')
 var client = mqtt.connect('mqtt://52.157.91.193')
-var topic = 'sensors/temperature/ts1'
-var topicH = 'sensors/temperature/hs1'
+var topic = 'sensors/hrazdera/ts1'
+var topicH = 'sensors/hrazdera/hs1'
 
         client.on('connect', ()=>{
             setInterval(()=>{
@@ -9,14 +9,14 @@ var topicH = 'sensors/temperature/hs1'
                 sensor.read(22, 4, function(err, temperature, humidity){
                     if (!err){
                         var message= {
-                            sensorName: "ts1",
+                            type: "temperature",
                             value: temperature,
-                            tempUnit: "°C",
+                            unit: "°C",
                         }
                         var messageHumidity= {
-                            sensorName: "hs1",
+                            type: "humidity",
                             value: humidity,
-                            tempUnit: "%"
+                            unit: "%"
                         }
                         client.publish(topic, JSON.stringify(message))
                         client.publish(topicH, JSON.stringify(messageHumidity))
