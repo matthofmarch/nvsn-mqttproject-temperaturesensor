@@ -1,7 +1,7 @@
 var mqtt = require('mqtt')
 var client = mqtt.connect('mqtt://51.136.13.51')//mqtt server
 var topic = 'sensors/hrazdera/ts1'//topic Temperatur
-var topicH = 'sensors/hrazdera/hs1'//topic Temepartur
+var topicH = 'sensors/hrazdera/hs1'//topic Feuchtigkeit
 
         client.on('connect', ()=>{ //verbindung
             setInterval(()=>{
